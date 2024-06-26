@@ -4,19 +4,19 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
+
+import javafx.geometry.Point3D;
+import javafx.scene.Camera;
+import javafx.scene.Node;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.ScrollEvent;
-
-import javafx.scene.layout.Pane;
-import javafx.scene.shape.Shape3D;
-import javafx.scene.shape.Sphere;
-import javafx.stage.Stage;
-
-import javafx.scene.*;
-import javafx.scene.paint.Color;
-
-
 
 
 
@@ -24,14 +24,32 @@ import javafx.scene.paint.Color;
 
 
 public class JavaPoints3D extends Application {
-    private static final int WIDTH = 640;
-    private static final int HEIGHT = 480;
+    private static final int WIDTH = 960;
+    private static final int HEIGHT = 720;
 
     private Pane root;
 
-    public static void main(String[] args) {
-        launch();
+    private Camera3D camera;
+
+    private ArrayList<CustomPoint3D> shapes = new ArrayList<CustomPoint3D>();
+
+    private void sort_shapes() {
+        shapes.sort(new Comparator<CustomPoint3D>() {
+            @Override
+            public int compare(CustomPoint3D o1, CustomPoint3D o2) {
+                return Double.compare(o2.getDistance(camera), o1.getDistance(camera));
+            }
+        });
     }
+
+    private void add_shape(CustomPoint3D shape) {
+        shapes.add(shape);
+        sort_shapes();
+        root.getChildren().add(shape);
+        redraw_points();
+    }
+
+    public static void main(String[] args) { launch(); }
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -44,7 +62,7 @@ public class JavaPoints3D extends Application {
         stage.setScene(scene);
         stage.show();
 
-        Camera3D camera = new Camera3D();
+        camera = new Camera3D();
         scene.setCamera(camera);
 
         stage.addEventHandler(ScrollEvent.SCROLL, scrollEvent -> { camera.zoom(scrollEvent.getDeltaY()); });
@@ -62,19 +80,16 @@ public class JavaPoints3D extends Application {
             }
         });
 
-        Sphere sphere = new Sphere();
-        sphere.translateXProperty().set(WIDTH/2.0);
-        sphere.translateYProperty().set(HEIGHT/2.0);
-        add_shape(sphere);
+        add_shape(new CustomPoint3D(WIDTH/4.0, HEIGHT/4.0, 100));
 
-        Sphere sphere2 = new Point3D();
-        sphere2.translateXProperty().set(WIDTH/4.0);
-        sphere2.translateYProperty().set(HEIGHT/4.0);
-        add_shape(sphere2);
+        add_shape(new CustomPoint3D(WIDTH/2.0, HEIGHT/2.0, 10));
+
+        add_shape(new CustomPoint3D(WIDTH/4.0, HEIGHT/4.0, 1000));
     }
 
-    private void add_shape(Shape3D shape) {
-        root.getChildren().add(shape);
+    private void redraw_points() {
+        for (CustomPoint3D shape : shapes) {
+            shape.toFront();
+        }
     }
-
 }
