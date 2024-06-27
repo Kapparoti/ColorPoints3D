@@ -4,7 +4,7 @@ import javafx.geometry.Point3D;
 import javafx.scene.PerspectiveCamera;
 
 public class Camera3D extends PerspectiveCamera implements Position {
-    private static final double CAMERA_MOVE_SPEED = 10;
+    private static final double CAMERA_MOVE_SPEED = 5;
 
     @Override
     public Point3D getPosition() {
@@ -22,6 +22,8 @@ public class Camera3D extends PerspectiveCamera implements Position {
     }
 
     public void moveUp() { ////////////////////////////////////////////////////////|/// DA ROTAZIONE SULLA SFERA
+        //setRotationAxis(getPosition() + );
+        //setRotate(CAMERA_MOVE_SPEED);
         setTranslateY(getTranslateY() - CAMERA_MOVE_SPEED);
     }
 

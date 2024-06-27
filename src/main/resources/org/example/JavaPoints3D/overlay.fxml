@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="569.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ColorPicker minHeight="-Infinity" minWidth="-Infinity" />
+   </children>
+</VBox>

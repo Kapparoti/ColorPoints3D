@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="623cbcb5-4e18-468b-b08d-b2f7d173ad4a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/JavaPoints3D/overlay.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/JavaPoints3D/scene3D.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/Camera3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/Camera3D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/JavaPoints3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/JavaPoints3D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/Point3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/CustomPoint3D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/JavaPoints3D/main_window.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,13 +50,13 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Application.HelloApplication.executor": "Run",
-    "Application.JavaPoints3D.executor": "Debug",
+    "Application.JavaPoints3D.executor": "Run",
     "Application.Points3D.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/uni YUPPII/Secondo anno/Secondo semestre/Programmazione ad Oggetti/JavaPoints3D",
+    "last_opened_file_path": "D:/uni YUPPII/Secondo anno/Secondo semestre/Programmazione ad Oggetti/JavaPoints3D/src/main/resources/org/example/JavaPoints3D",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -64,6 +65,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\uni YUPPII\Secondo anno\Secondo semestre\Programmazione ad Oggetti\JavaPoints3D\src\main\resources\org\example\JavaPoints3D" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -96,6 +102,7 @@
       <workItem from="1719423033364" duration="2766000" />
       <workItem from="1719425836283" duration="1081000" />
       <workItem from="1719433320629" duration="3690000" />
+      <workItem from="1719480784062" duration="3195000" />
     </task>
     <servers />
   </component>
@@ -115,6 +122,7 @@
     <watches-manager>
       <configuration name="Application">
         <watch expression="((JavaPoints3D)this).shapes" custom="org.example.JavaPoints3D.JavaPoints3D" />
+        <watch expression="this" />
       </configuration>
     </watches-manager>
   </component>

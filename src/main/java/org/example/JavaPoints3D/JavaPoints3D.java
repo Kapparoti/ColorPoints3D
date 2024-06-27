@@ -7,9 +7,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-import javafx.geometry.Point3D;
-import javafx.scene.Camera;
-import javafx.scene.Node;
+import javafx.scene.SceneAntialiasing;
+import javafx.scene.SubScene;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -20,14 +19,11 @@ import javafx.scene.input.ScrollEvent;
 
 
 
-
-
-
 public class JavaPoints3D extends Application {
     private static final int WIDTH = 960;
     private static final int HEIGHT = 720;
 
-    private Pane root;
+    private Pane root3D;
 
     private Camera3D camera;
 
@@ -45,7 +41,7 @@ public class JavaPoints3D extends Application {
     private void add_shape(CustomPoint3D shape) {
         shapes.add(shape);
         sort_shapes();
-        root.getChildren().add(shape);
+        root3D.getChildren().add(shape);
         redraw_points();
     }
 
@@ -53,20 +49,29 @@ public class JavaPoints3D extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(JavaPoints3D.class.getResource("main_window.fxml"));
-        root = fxmlLoader.load();
-        Scene scene = new Scene(root, WIDTH, HEIGHT);
-        scene.setFill(Color.SILVER);
+        //Loading scenes
+        FXMLLoader fxmlLoader = new FXMLLoader(JavaPoints3D.class.getResource("overlay.fxml")); //Overlay scene with controls
+        Pane root = fxmlLoader.load();
+        FXMLLoader fxmlLoader1 = new FXMLLoader(JavaPoints3D.class.getResource("scene3D.fxml")); //3D scene
+        root3D = fxmlLoader1.load();
 
+        //Setting up the 3D SubScene
+        SubScene scene3D = new SubScene(root3D, WIDTH, HEIGHT);
+        camera = new Camera3D();
+        scene3D.setCamera(camera);
+        root.getChildren().add(scene3D);
+
+        //Setting up the main scene
+        Scene mainScene = new Scene(root, WIDTH, HEIGHT, true, SceneAntialiasing.BALANCED);
+        mainScene.setFill(Color.SILVER);
         stage.setTitle("JavaPoints3D");
-        stage.setScene(scene);
+        stage.setScene(mainScene);
         stage.show();
 
-        camera = new Camera3D();
-        scene.setCamera(camera);
-
+        //Zoom handler
         stage.addEventHandler(ScrollEvent.SCROLL, scrollEvent -> { camera.zoom(scrollEvent.getDeltaY()); });
 
+        //Camera3D movement handler
         stage.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
             switch (event.getCode()) {
                 case W:
@@ -78,7 +83,7 @@ public class JavaPoints3D extends Application {
                 case D:
                     camera.moveRight();
             }
-        });
+            });
 
         add_shape(new CustomPoint3D(WIDTH/4.0, HEIGHT/4.0, 100));
 
