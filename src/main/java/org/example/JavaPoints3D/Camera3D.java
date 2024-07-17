@@ -15,24 +15,23 @@ public class Camera3D extends PerspectiveCamera {
     private final Translate cameraPivot = new Translate();
 
 
+    public Translate getPivot() { return cameraPivot; }
+
     public void setPivot(double x, double y, double z) {
         cameraPivot.setX(x);
         cameraPivot.setY(y);
         cameraPivot.setZ(z);
     }
 
-    public Translate getPivot() { return cameraPivot; }
-
-
-    public void setZoom(double value) { cameraRadius.setZ(value); }
 
     public double getZoom() { return cameraRadius.getZ(); }
+
+    public void setZoom(double value) { cameraRadius.setZ(value); }
 
 
     public Camera3D() {
         super(true);
         farClipProperty().set(Double.MAX_VALUE);
-        nearClipProperty().set(0);
 
         xRotate = new Rotate(0, Rotate.Y_AXIS);
         yRotate = new Rotate(0, Rotate.X_AXIS);
@@ -50,6 +49,6 @@ public class Camera3D extends PerspectiveCamera {
     }
 
     public void rotateY(double delta) {
-        yRotate.setAngle(yRotate.getAngle() - delta / 2);
+        yRotate.setAngle(yRotate.getAngle() + delta / 2);
     }
 }

@@ -1,10 +1,16 @@
 package org.example.JavaPoints3D;
 
 import javafx.geometry.Point3D;
+import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Sphere;
+import javafx.scene.paint.Color;
+
 
 public class CustomPoint3D extends Sphere implements Spatial {
     private static final int RADIUS = 1;
+
+    private Color color;
+
 
     @Override
     public Point3D getPosition() {
@@ -18,13 +24,26 @@ public class CustomPoint3D extends Sphere implements Spatial {
         setTranslateZ(position.getZ());
     }
 
-    public CustomPoint3D(Point3D point) {
-        super(RADIUS);
-        this.setPosition(point);
+
+    public Color getColor() {
+        return color;
     }
-    public CustomPoint3D(double x, double y, double z) {
+
+    public void setColor(Color color) {
+        this.color = color;
+        setMaterial( new PhongMaterial(color));
+    }
+
+
+    public CustomPoint3D(Point3D point, Color color) {
         super(RADIUS);
-        this.setPosition(x, y, z);
+        setPosition(point);
+        setColor(color);
+    }
+    public CustomPoint3D(double x, double y, double z, Color color) {
+        super(RADIUS);
+        setPosition(x, y, z);
+        setColor(color);
     }
 
 

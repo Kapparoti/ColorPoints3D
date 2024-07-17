@@ -7,8 +7,9 @@
     <list default="true" id="623cbcb5-4e18-468b-b08d-b2f7d173ad4a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/Camera3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/Camera3D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/CustomPoint3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/CustomPoint3D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/JavaPoints3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/JavaPoints3D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/JavaPoints3D/scene3D.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/JavaPoints3D/overlay.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/JavaPoints3D/overlay.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +133,16 @@
       <workItem from="1719604825096" duration="5731000" />
       <workItem from="1719925922177" duration="870000" />
       <workItem from="1720963468913" duration="222000" />
-      <workItem from="1721239025024" duration="2847000" />
+      <workItem from="1721239025024" duration="3797000" />
+      <workItem from="1721244392244" duration="146000" />
+      <workItem from="1721244556515" duration="19000" />
+      <workItem from="1721244636747" duration="204000" />
+      <workItem from="1721244910864" duration="100000" />
+      <workItem from="1721245105518" duration="187000" />
+      <workItem from="1721245355487" duration="110000" />
+      <workItem from="1721245512169" duration="162000" />
+      <workItem from="1721245733897" duration="150000" />
+      <workItem from="1721246027836" duration="4454000" />
     </task>
     <servers />
   </component>
@@ -153,6 +163,11 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/JavaPoints3D.java</url>
+          <line>116</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
