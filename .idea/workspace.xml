@@ -6,12 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="623cbcb5-4e18-468b-b08d-b2f7d173ad4a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/Camera3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/Camera3D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/CustomPoint3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/CustomPoint3D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/JavaPoints3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/JavaPoints3D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/JavaPoints3D/Spatial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/JavaPoints3D/scene3D.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +56,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/uni YUPPII/Secondo anno/Secondo semestre/Programmazione ad Oggetti/JavaPoints3D/src/main/resources/org/example/JavaPoints3D",
+    "last_opened_file_path": "D:/uni YUPPII/Secondo anno/Secondo semestre/Programmazione ad Oggetti/JavaPoints3D",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -131,6 +128,11 @@
       <workItem from="1719577538642" duration="4487000" />
       <workItem from="1719586077668" duration="585000" />
       <workItem from="1719586940190" duration="6469000" />
+      <workItem from="1719603544049" duration="1227000" />
+      <workItem from="1719604825096" duration="5731000" />
+      <workItem from="1719925922177" duration="870000" />
+      <workItem from="1720963468913" duration="222000" />
+      <workItem from="1721239025024" duration="2847000" />
     </task>
     <servers />
   </component>
