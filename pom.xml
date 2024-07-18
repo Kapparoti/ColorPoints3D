@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>javapoints3d</artifactId>
+    <artifactId>ColorPoints3D</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>Points3D</name>
 
@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>org.example.points3d/org.example.JavaPoints3D.JavaPoints3D</mainClass>
+                            <mainClass>org.example.points3d/org.example.ColorPoints3D.ColorPoints3D</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

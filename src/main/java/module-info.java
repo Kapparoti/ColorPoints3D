@@ -5,6 +5,6 @@ module org.example.points3d {
     requires java.xml.crypto;
 
 
-    opens org.example.JavaPoints3D to javafx.fxml;
-    exports org.example.JavaPoints3D;
+    opens org.example.ColorPoints3D to javafx.fxml;
+    exports org.example.ColorPoints3D;
 }
