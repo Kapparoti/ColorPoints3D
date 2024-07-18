@@ -4,6 +4,7 @@ package org.example.JavaPoints3D;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 
+import javafx.scene.control.CheckBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.HBox;
 import javafx.scene.control.Button;
@@ -26,18 +27,25 @@ import java.util.Random;
 
 
 public class JavaPoints3D extends Application {
+    //Size of the window
     private static final int WIDTH = 960;
     private static final int HEIGHT = 720;
 
+    //Interface
     private final ColorPicker colorPick = new ColorPicker();
+    private final CheckBox enableHighlight = new CheckBox("Enable selected point highlight");
+    private final Button randomButton = new Button("Spawn random");
+    private final Button clearButton = new Button("Delete all");
 
-    private final Button spawnRandom = new Button("Random");
+    //Point select
+    private CustomPoint3D selectedPoint;
+    private Sphere highlight;
 
-    private final Sphere highlight = new Sphere(1);
-
+    //For mouse drag
     private double lastMouseX = 0;
     private double lastMouseY = 0;
 
+    //Group of the points and camera
     private Group group3D;
     private Camera3D camera;
 
@@ -57,7 +65,9 @@ public class JavaPoints3D extends Application {
         menuHBox.setSpacing(50);
 
         menuHBox.getChildren().add(colorPick);
-        menuHBox.getChildren().add(spawnRandom);
+        menuHBox.getChildren().add(enableHighlight);
+        menuHBox.getChildren().add(randomButton);
+        menuHBox.getChildren().add(clearButton);
 
         root.getChildren().add(menuHBox);
 
@@ -78,8 +88,9 @@ public class JavaPoints3D extends Application {
         camera = new Camera3D();
         scene3D.setCamera(camera);
 
-        //Setting up the highlight node
-        highlight.setMaterial( new PhongMaterial(Color.rgb(200, 200, 200, 0.1)));
+        //Setting up highlight node
+        highlight = new Sphere(1);
+        highlight.setMaterial( new PhongMaterial(Color.rgb(255, 255, 255, 0.1)));
         group3D.getChildren().add(highlight);
 
         //Zoom handler
@@ -105,45 +116,65 @@ public class JavaPoints3D extends Application {
             lastMouseY = -1;
         });
 
+        //Color picker
+        colorPick.setOnAction(_ -> {
+            selectedPoint.setColor(colorPick.getValue());
+        });
+
+        //Selected point highlight checkbox
+        enableHighlight.setSelected(true);
+        enableHighlight.setOnAction(_ -> highlight.setVisible(enableHighlight.isSelected()));
 
         //Random button
-        spawnRandom.setOnAction(_ -> {
+        randomButton.setOnAction(_ -> {
             Random r = new Random();
-            double maxRange = Math.abs(camera.getZoom());
+            double maxRange = (Math.abs(camera.getZoom()) / 5);
             add_shape(new CustomPoint3D(
-                    highlight.getTranslateX() + r.nextDouble(r.nextDouble(maxRange)),
-                    highlight.getTranslateY() + r.nextDouble(r.nextDouble(maxRange)),
-                    highlight.getTranslateZ() + r.nextDouble(r.nextDouble(maxRange)),
+                    selectedPoint.getTranslateX() + r.nextDouble(2 * maxRange) - maxRange,
+                    selectedPoint.getTranslateY() + r.nextDouble(2 * maxRange) - maxRange,
+                    selectedPoint.getTranslateZ() + r.nextDouble(2 * maxRange) - maxRange,
                     Color.rgb(r.nextInt(255), r.nextInt(255), r.nextInt(255)))
             );
         });
+
+        //Clear button
+        clearButton.setOnAction(_ -> {
+            group3D.getChildren().clear();
+            group3D.getChildren().add(camera);
+        });
+
         //Adding some points
-        CustomPoint3D startingPoint = new CustomPoint3D(0, 0, 0, Color.rgb(0, 0, 0));
+        CustomPoint3D startingPoint = new CustomPoint3D(0, 0, 0, null);
         add_shape(startingPoint);
         highlightPoint(startingPoint);
 
-        add_shape(new CustomPoint3D(15, 0, 0, Color.rgb(0, 0, 0)));
+        add_shape(new CustomPoint3D(15, 0, 0, null));
 
-        add_shape(new CustomPoint3D(0, 10, 0, Color.rgb(0, 0, 0)));
+        add_shape(new CustomPoint3D(0, 10, 0, null));
 
-        add_shape(new CustomPoint3D(0, 0, 25, Color.rgb(0, 0, 0)));
+        add_shape(new CustomPoint3D(0, 0, 25, null));
 
-        add_shape(new CustomPoint3D(10, 10, 10, Color.rgb(0, 0, 0)));
+        add_shape(new CustomPoint3D(10, 10, 10, null));
     }
 
     private void add_shape(CustomPoint3D point) {
         group3D.getChildren().add(point);
-
         // Click handler
         point.setOnMouseClicked(_ -> highlightPoint(point));
     }
 
     public void highlightPoint(CustomPoint3D point) {
-        camera.setPivot(point.getX(), point.getY(), point.getZ());
+        selectedPoint = point;
 
-        highlight.setTranslateX(point.getX());
-        highlight.setTranslateY(point.getY());
-        highlight.setTranslateZ(point.getZ());
+        camera.setPivot(selectedPoint.getX(), selectedPoint.getY(), selectedPoint.getZ());
+
+        colorPick.setValue(selectedPoint.getColor());
+
+        if (highlight.getParent() == null) { group3D.getChildren().add(highlight); }
+
+        highlight.setTranslateX(selectedPoint.getX());
+        highlight.setTranslateY(selectedPoint.getY());
+        highlight.setTranslateZ(selectedPoint.getZ());
 
         highlight.toFront();
     }

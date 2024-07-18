@@ -43,8 +43,10 @@ public class CustomPoint3D extends Sphere implements Spatial {
     public CustomPoint3D(double x, double y, double z, Color color) {
         super(RADIUS);
         setPosition(x, y, z);
+
+        if (color == null) {
+            color = Color.rgb(100, 100, 100);
+        }
         setColor(color);
     }
-
-
 }
