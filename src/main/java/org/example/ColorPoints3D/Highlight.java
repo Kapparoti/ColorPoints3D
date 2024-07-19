@@ -21,6 +21,7 @@ public class Highlight extends Sphere implements Spatial {
     }
 
     public Highlight() {
+        super(RADIUS);
         setMaterial( new PhongMaterial(Color.rgb(255, 255, 255, 0.1)));
     }
 }
