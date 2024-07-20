@@ -1,19 +1,18 @@
 package org.example.ColorPoints3D;
 
 
-import javafx.geometry.Point3D;
 import javafx.scene.PerspectiveCamera;
-
+import javafx.geometry.Point3D;
 import javafx.scene.transform.Translate;
 import javafx.scene.transform.Rotate;
 
 public class CustomCamera extends PerspectiveCamera {
-    private final Rotate xRotate;
-    private final Rotate yRotate;
+    private final Rotate xRotate = new Rotate(0, Rotate.Y_AXIS);
+    private final Rotate yRotate = new Rotate(0, Rotate.X_AXIS);
 
     private final Translate cameraRadius = new Translate(0, 0, -40);
 
-    private final Translate cameraPivot = new Translate();
+    private final Translate cameraPivot = new Translate(0, 0);
 
 
     public Translate getPivot() { return cameraPivot; }
@@ -35,9 +34,6 @@ public class CustomCamera extends PerspectiveCamera {
     public CustomCamera() {
         super(true);
         farClipProperty().set(Double.MAX_VALUE);
-
-        xRotate = new Rotate(0, Rotate.Y_AXIS);
-        yRotate = new Rotate(0, Rotate.X_AXIS);
 
         getTransforms().addAll(
                 cameraPivot,

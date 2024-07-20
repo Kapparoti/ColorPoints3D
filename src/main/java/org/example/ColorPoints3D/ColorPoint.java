@@ -1,8 +1,8 @@
 package org.example.ColorPoints3D;
 
+import javafx.scene.shape.Sphere;
 import javafx.geometry.Point3D;
 import javafx.scene.paint.PhongMaterial;
-import javafx.scene.shape.Sphere;
 import javafx.scene.paint.Color;
 
 
