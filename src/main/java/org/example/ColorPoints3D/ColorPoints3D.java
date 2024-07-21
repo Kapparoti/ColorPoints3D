@@ -85,7 +85,7 @@ public class ColorPoints3D extends Application {
         group3D.getChildren().add(highlight);
 
         //Zoom handler
-        mainScene.addEventHandler(ScrollEvent.SCROLL, scrollEvent -> camera.setZoom(camera.getZoom() + scrollEvent.getDeltaY() / 10));
+        mainScene.addEventHandler(ScrollEvent.SCROLL, scrollEvent -> camera.setRadius(camera.getRadius() + scrollEvent.getDeltaY() / 10));
 
         //Drag handler
         mainScene.setOnMousePressed(dragEnterEvent -> {
@@ -117,7 +117,7 @@ public class ColorPoints3D extends Application {
         //Random button
         randomButton.setOnAction(_ -> {
             Random r = new Random();
-            double maxRange = (Math.abs(camera.getZoom()) / 5);
+            double maxRange = (Math.abs(camera.getRadius()) / 5);
             add_shape(new ColorPoint(
                     selectedPoint.getPosition().getX() + r.nextDouble(2 * maxRange) - maxRange,
                     selectedPoint.getPosition().getY() + r.nextDouble(2 * maxRange) - maxRange,

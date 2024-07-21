@@ -9,21 +9,8 @@ import javafx.scene.paint.Color;
 public class ColorPoint extends Sphere implements Spatial {
     private static final int RADIUS = 1;
 
+
     private Color color;
-
-
-    @Override
-    public Point3D getPosition() {
-        return new Point3D(getTranslateX(), getTranslateY(), getTranslateZ());
-    }
-    @Override
-    public void setPosition(Point3D position) {
-        getTransforms().clear();
-        setTranslateX(position.getX());
-        setTranslateY(position.getY());
-        setTranslateZ(position.getZ());
-    }
-
 
     public Color getColor() {
         return color;
@@ -33,7 +20,8 @@ public class ColorPoint extends Sphere implements Spatial {
         this.color = color;
         setMaterial( new PhongMaterial(color));
     }
-    
+
+
     public ColorPoint(double x, double y, double z, Color color) {
         super(RADIUS);
         setPosition(x, y, z);

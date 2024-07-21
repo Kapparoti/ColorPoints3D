@@ -24,9 +24,9 @@ public class CustomCamera extends PerspectiveCamera {
     }
 
 
-    public double getZoom() { return cameraRadius.getZ(); }
+    public double getRadius() { return cameraRadius.getZ(); }
 
-    public void setZoom(double value) {
+    public void setRadius(double value) {
         if (value < -1) { cameraRadius.setZ(value); }
     }
 
