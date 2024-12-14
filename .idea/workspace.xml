@@ -10,7 +10,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ColorPoints3D/ColorPoints3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ColorPoints3D/ColorPoints3D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ColorPoints3D/CustomCamera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ColorPoints3D/CustomCamera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ColorPoints3D/Highlight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ColorPoints3D/Highlight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ColorPoints3D/Spatial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ColorPoints3D/Spatial.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,6 +159,10 @@
       <workItem from="1721465111167" duration="10000" />
       <workItem from="1721573893844" duration="682000" />
       <workItem from="1721574592607" duration="2000" />
+      <workItem from="1721652575829" duration="45000" />
+      <workItem from="1721823142301" duration="141000" />
+      <workItem from="1722005405627" duration="60000" />
+      <workItem from="1734186817537" duration="1951000" />
     </task>
     <servers />
   </component>

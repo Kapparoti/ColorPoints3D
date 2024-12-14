@@ -39,7 +39,6 @@ public class ColorPoints3D extends Application {
 
     //Group of the points and camera
     private Group group3D;
-    private CustomCamera camera;
 
     public static void main(String[] args) {
         launch();
@@ -77,15 +76,14 @@ public class ColorPoints3D extends Application {
         stage.show();
 
         //Setting up the camera
-        camera = new CustomCamera();
-        scene3D.setCamera(camera);
+        scene3D.setCamera(CustomCamera.getInstance());
 
         //Setting up highlight node
         highlight = new Highlight();
         group3D.getChildren().add(highlight);
 
         //Zoom handler
-        mainScene.addEventHandler(ScrollEvent.SCROLL, scrollEvent -> camera.setRadius(camera.getRadius() + scrollEvent.getDeltaY() / 10));
+        mainScene.addEventHandler(ScrollEvent.SCROLL, scrollEvent -> CustomCamera.getInstance().setRadius(CustomCamera.getInstance().getRadius() + scrollEvent.getDeltaY() / 10));
 
         //Drag handler
         mainScene.setOnMousePressed(dragEnterEvent -> {
@@ -95,9 +93,9 @@ public class ColorPoints3D extends Application {
 
         mainScene.setOnMouseDragged(mouseDragEvent -> {
             if (lastMouseX >= 0 && lastMouseY >= 0) {
-                camera.rotateX(lastMouseX - mouseDragEvent.getSceneX());
+                CustomCamera.getInstance().rotateX(lastMouseX - mouseDragEvent.getSceneX());
                 lastMouseX = mouseDragEvent.getSceneX();
-                camera.rotateY(lastMouseY - mouseDragEvent.getSceneY());
+                CustomCamera.getInstance().rotateY(lastMouseY - mouseDragEvent.getSceneY());
                 lastMouseY = mouseDragEvent.getSceneY();
             }
         });
@@ -117,7 +115,7 @@ public class ColorPoints3D extends Application {
         //Random button
         randomButton.setOnAction(_ -> {
             Random r = new Random();
-            double maxRange = (Math.abs(camera.getRadius()) / 5);
+            double maxRange = (Math.abs(CustomCamera.getInstance().getRadius()) / 5);
             add_shape(new ColorPoint(
                     selectedPoint.getPosition().getX() + r.nextDouble(2 * maxRange) - maxRange,
                     selectedPoint.getPosition().getY() + r.nextDouble(2 * maxRange) - maxRange,
@@ -129,7 +127,7 @@ public class ColorPoints3D extends Application {
         //Clear button
         clearButton.setOnAction(_ -> {
             group3D.getChildren().clear();
-            group3D.getChildren().add(camera);
+            group3D.getChildren().add(CustomCamera.getInstance());
         });
 
         //Adding starting point
@@ -147,7 +145,7 @@ public class ColorPoints3D extends Application {
     public void highlightPoint(ColorPoint point) {
         selectedPoint = point;
 
-        camera.setPivot(selectedPoint.getPosition());
+        CustomCamera.getInstance().setPivot(selectedPoint.getPosition());
 
         colorPick.setValue(selectedPoint.getColor());
 
